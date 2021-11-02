@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD3-2</title>
+</head>
+<body>
+    <form action="">
+        <div>
+          <label for="frase" >Introduzca una frase:</label>
+          <input type="text" style="width: 75%;" id="frase">
+        </div>
+        
+       <div>
+          <label for="inicio">introduzca marca de inicio</label>
+          <input type="text" id="inicio">
+        </div>
+       <div>
+          <label for="frase">Introduzca marca de final:</label>
+          <input type="text" id="final">
+       </div>
+       
+        <button type="button" id="boton">Presionar</button>
+    </form>
+    <h2>El sesultado es:</h2>
+    <h3 id="resultado"></h3>
+    <script>
+       
+        document.getElementById("boton").addEventListener("click", extraer);
+        
+       
+        let inicio = document.getElementById("inicio");
+        let final = document.getElementById("final");
+        /* dejar los valores de los indices vacios */
+        function limpiarIndices() {
+            inicio.value="";
+            final.value="";
+        }
+
+        /* funcion que extraerá la parte comprendida entre unas marcas de inicio y fin 
+        selecionados por el usuario */
+        function extraer() {
+            let frase =document.getElementById("frase").value;
+            let marcaInicio = frase.indexOf(inicio.value);
+            let marcaFinal = frase.lastIndexOf(final.value);
+
+            /* muesrtra por consolas los valores nesesarios para la ejecucion */
+            console.log(frase); 
+            console.log(marcaInicio);
+            console.log(marcaFinal);
+            console.log(frase.substring(marcaInicio, marcaFinal));
+
+            /* si la letra de inicio no esta nos avisara con un alert */
+            if(marcaInicio != -1){
+                /* si la letra final no se encuentra nos avisa con un alert */
+                if (marcaFinal != -1) {
+                  let resultado = frase.substring(marcaInicio, marcaFinal);
+                  document.getElementById("resultado").innerHTML = resultado;
+
+                  limpiarIndices();
+               
+                }else{
+                    alert("La marca final no se encuentra");
+
+                    limpiarIndices();
+                }
+               
+            
+            }else{
+                alert("La marca inicial no se encuentra");
+                
+                limpiarIndices();
+            } 
+        }    
+    </script>
+</body>
+</html>

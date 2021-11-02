@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD3-1</title>
+    <style>
+         div{
+            position: absolute;
+            width: 50px;
+            height: 50px;  
+            border-radius: 10px; 
+           
+        } 
+
+    </style>
+    <script>
+
+        let cuadro;
+
+        /* funcion para conseguir un numero aleatorio desde 0 
+        hasta el numero que se pasa por parametro. */
+
+        function aleatorio(numero) {
+            return Math.round((Math.random()*numero));            
+        }
+
+        for (let i = 0; i < 2000; i++) {
+           
+          cuadro = '<div style="background-color: rgb('+aleatorio(256)+','+
+          aleatorio(256)+','+aleatorio(256)+
+          ');left:'+aleatorio(1250)+'px;top:'+aleatorio(750)+'px;"></div>'
+
+          document.write(cuadro);
+            console.log(aleatorio(256));
+        }   
+
+        
+        
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
